@@ -1,0 +1,70 @@
+﻿@model LoginDto
+
+
+<div class="text-center">
+    <div class="title">
+        <h1>Studentska sluzba</h1>
+    </div>
+    <div class="justify-content-center container mt-5 login-box">
+        <div class="row"><h3 class="login-clr">Log in</h3></div>
+        <form method="post" action="@Url.Action("SubmitLoginProfesor", "User")">
+            <div class="row container justify-content-center">
+                <div class="row  d-flex justify-content-left">
+                    <div class="col-sm-4 col-md-4 px-5"><h4 class="login-clr">Email: </h4></div>
+                    <div class="col-sm-2 col-md-2 px-5"><input type="email" name="Email" required value="@Model.Email" /></div>
+                </div>
+                <div class="row  d-flex justify-content-left mt-2">
+                    <div class="col-sm-4 col-md-4  px-5"><h4 class="login-clr">Password: </h4></div>
+                    <div class="col-sm-2 col-md-2  px-5"><input required name="Password" value="@Model.Password" type="password" /></div>
+                </div>
+                <div class="row justify-content-center mt-2 mb-2">
+                    <input type="submit" value="Submit" class="btn" />
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+</div>
+
+@if (ViewBag.NotifyOnStart != null)
+{
+    <script>alert('@ViewBag.NotifyOnStart')</script>
+}
+
+
+<style>
+    .title {
+        background: blue !important;
+    }
+
+    .login-box {
+        border: solid 4px;
+        border-color: black;
+        background-color: lightblue !important;
+        border-radius: 20px;
+        max-width: 50% !important;
+    }
+
+    .login-clr {
+        color: black;
+    }
+
+    .btn {
+        color: black;
+        background-color: transparent;
+        border: solid 2px;
+        border-radius: 10px;
+        width: 50%;
+        background-color: white;
+        font-size: 1.5em;
+    }
+
+        .btn:hover {
+            background-color: lightblue;
+        }
+</style>
+
+
+
+

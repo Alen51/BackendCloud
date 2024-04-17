@@ -1,0 +1,32 @@
+﻿@model List<Predmet>
+<div class="text-center">
+    <h1>SVI PREDMETI</h1>
+
+    <table class="table" style="background-color:aqua">
+        <tr>
+            <td>Ime predmeta</td>
+            <td>Ime profesora</td>
+            <td></td>
+        </tr>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.ImePredmeta</td>
+                <td>@p.emailProfesora</td>
+                @if (p.StudentList.ContainsKey(ViewBag.s))
+                {
+                    <td>
+                        <button class="" type="button"><h5>@Html.ActionLink("Ispisi se sa predmeta", "Ispis", "Predmet", new { email = ViewBag.s, predmet = p.ImePredmeta }, new { style = "color: white;text-decoration: none;" })</h5></button>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <button class="" type="button"><h5>@Html.ActionLink("Upisi se na predmet", "Upis", "Predmet", new { email = ViewBag.s, predmet = p.ImePredmeta }, new { style = "color: white;text-decoration: none;" })</h5></button>
+                    </td>
+
+                }
+            </tr>
+        }
+    </table>
+</div>

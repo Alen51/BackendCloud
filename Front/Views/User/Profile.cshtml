@@ -1,0 +1,102 @@
+﻿@model Student
+@{
+    var allowModify = false;
+
+}
+
+<div class="text-center">
+    <div class="title">
+        <h1>STUDENTSKA SLUZBA</h1>
+    </div>
+    <div class="justify-content-center container mt-5 login-box">
+        <div class="row"><h3 class="login-clr"> PROFILE</h3></div>
+        <form method="post" action="@Url.Action("ModifyProfile", "User")">
+            <div id="form" class="row container justify-content-left">
+                <div class="row  d-flex justify-content-center">
+                    <div class="col-sm-4 col-md-4 px-5"><h4 class="login-clr">Ime: </h4></div>
+                    <div class="col-sm-2 col-md-2 px-5">
+                        <div class="inputFields"><input required name="Ime" value="@Model.Ime" /></div>
+                    </div>
+                </div>
+                <div class="row  d-flex justify-content-left">
+                    <div class="col-sm-4 col-md-4 px-5"><h4 class="login-clr">Prezime: </h4></div>
+                    <div class="col-sm-2 col-md-2 px-5">
+                        <div class="inputFields"><input required name="Prezime" value="@Model.Prezime" /></div>
+                    </div>
+                </div>
+
+                <div class="row  d-flex justify-content-left">
+                    <div class="col-sm-4 col-md-4 px-5"><h4 class="login-clr">Index: </h4></div>
+                    <div class="col-sm-2 col-md-2 px-5">
+                        <div class="inputFields"><input required name="Index" value="@Model.Index" /></div>
+                    </div>
+                </div>
+
+                <div class="row  d-flex justify-content-left">
+                    <div class="col-sm-4 col-md-4 px-5"><h4 class="login-clr">Email: </h4></div>
+                    <div class="col-sm-2 col-md-2 px-5 "><input readonly required name="Email" value="@Model.Email" /></div>
+                </div>
+
+
+                <div class="row justify-content-center mt-2 mb-2 inputFields)">
+                    <Input class="btn" type="submit" value="Edit profile" />
+                </div>
+
+            </div>
+        </form>
+
+
+    </div>
+</div>
+
+@if (ViewBag.NotifyOnStart != null)
+{
+    <script>alert('@ViewBag.NotifyOnStart')</script>
+}
+
+<style>
+    .title {
+        background: blue !important;
+    }
+
+    .login-box {
+        border: solid 4px;
+        border-color: black;
+        background-color: lightblue !important;
+        border-radius: 20px;
+        max-width: 50% !important;
+    }
+
+    .login-clr {
+        color: black;
+    }
+
+    .btn {
+        color: black;
+        background-color: transparent;
+        border: solid 2px;
+        border-radius: 10px;
+        width: 50%;
+        background-color: white;
+        font-size: 1.5em;
+    }
+
+        .btn:hover {
+            background-color: lightblue;
+        }
+
+    .hide {
+        display: none;
+    }
+</style>
+
+<script>
+
+
+    function toggleForm() {
+        '@allowModify' = true;
+        // Toggle visibility of profile information
+        $('#form').toggle();
+    }
+</script>
+

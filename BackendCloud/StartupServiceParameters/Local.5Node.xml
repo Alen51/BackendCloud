@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StartupServices xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="FrontUI_InstanceCount" Value="1" />
+    <Parameter Name="StudentServiceStatefull_PartitionCount" Value="1" />
+    <Parameter Name="StudentServiceStatefull_MinReplicaSetSize" Value="3" />
+    <Parameter Name="StudentServiceStatefull_TargetReplicaSetSize" Value="3" />
+    <Parameter Name="PredmetService_PartitionCount" Value="1" />
+    <Parameter Name="PredmetService_MinReplicaSetSize" Value="3" />
+    <Parameter Name="PredmetService_TargetReplicaSetSize" Value="3" />
+  </Parameters>
+</StartupServices>

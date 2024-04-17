@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div class="title">
+        <h1>Studentska sluzba</h1>
+        @if (!ViewBag.IsLoggedIn)
+        {
+            <div class="d-flex justify-content-left">
+                <button class="LogRegisterBtn" type="button"><h5>@Html.ActionLink("Log in as Student", "LoginStudent", "User", null, new { style = "color: white;text-decoration: none;" })</h5></button>
+                <button class="LogRegisterBtn" type="button"><h5>@Html.ActionLink("Log in as Profesor", "LoginProfesor", "User", null, new { style = "color: white;text-decoration: none;" })</h5></button>
+                <button class="LogRegisterBtn" type="button"><h5>@Html.ActionLink("Register", "Register", "User", null, new { style = "color: white;text-decoration: none;" })</h5></button>
+                 </div>
+        }
+        @if (ViewBag.IsLoggedIn && ViewBag.Role as string == "student")
+        {
+            <div class="d-flex justify-content-left">
+                <button class="LogRegisterBtn" type="button"><h5>@Html.ActionLink("Profile", "Profile", "User", null, new { style = "color: white;text-decoration: none;" })</h5></button>
+                <button class="LogRegisterBtn" type="button"><h5>@Html.ActionLink("Predmeti", "Index", "Predmet", null, new { style = "color: white;text-decoration: none;" })</h5></button>
+           
+            </div>
+        }
+        @if (ViewBag.IsLoggedIn && ViewBag.Role as string == "profesor")
+        {
+            <div class="d-flex justify-content-left">
+            </div>
+        }
+
+    </div>
+</div>
+
+<style>
+
+    .title {
+        background: blue !important;
+    }
+
+    .LogRegisterBtn:hover {
+        background: darkred !important;
+        border: white !important;
+    }
+
+    .LogRegisterBtn {
+        background-color: transparent !important;
+        border: double;
+    }
+
+
+
+    .boxborder {
+        border: 3px red solid;
+    }
+
+    .mrl {
+        margin-left: 200px;
+    }
+</style>
